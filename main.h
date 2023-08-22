@@ -57,4 +57,10 @@ int handle_p(void *address, char *buff, int *idx);
 int print_hexup(unsigned int num, char *buff, int *idx);
 int handle_format(const char *format, va_list list, char *buff, int *idx);
 
+int is_printable(char);
+int append_hexa_code(char, char[], int);
+int is_digit(char);
+
+long int convert_size_number(long int num, int size);
+long int convert_size_unsgnd(unsigned long int num, int size);
 #endif
