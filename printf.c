@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 		if (*format == '%' && *(format + 1))
 		{
 			format++;
-			chars_written = handle_format(format, list, buff, &idx);
 			chars_written = handle_format_specifier(*format, list, buff, &idx);
 			if (chars_written < 0)
 			{
