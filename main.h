@@ -56,14 +56,5 @@ void _flush_buffer(char *buff, int *idx);
 int handle_p(void *address, char *buff, int *idx);
 int print_hexup(unsigned int num, char *buff, int *idx);
 int handle_format(const char *format, va_list list, char *buff, int *idx);
-int flags_get(const char *format, int *i)
-int precision_get(const char *format, int *i, va_list list)
-int print_handle(const char *fmt, int *ind, va_list list, char buffer[],
-	int flags, int width, int precision, int size)
-int _digit(char c)
-int app_hexa(char ascii_code, char buffer[], int i)
-long int conv_size_num(long int num, int size)
-
-
 
 #endif
