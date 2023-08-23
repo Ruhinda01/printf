@@ -2,43 +2,63 @@
 /**
  * _printf - printf function
  * @format: format specifiers
- *
  * Return: count
- */
+ **/
+void print_buffer(char buffer[], int *buff_ind);
 int _printf(const char *format, ...)
 {
+	int i, printed = 0, printed_chars = 0;
+	int flags, width, precision, size, buff_ind = 0;
 	va_list list;
-	char buff[BUFFER_SIZE];
-	int count = 0, chars_written = 0, idx = 0;
+	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(list, format);
-	while (*format)
+
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (*format == '%' && *(format + 1))
+		if (format[i] != '%')
 		{
-			format++;
-			chars_written = handle_format_specifier(*format, list, buff, &idx);
-			if (chars_written < 0)
-			{
-				va_end(list);
-				return (-1);
-			}
-			count += chars_written;
+			buffer[buff_ind++] = format[i];
+			if (buff_ind == BUFF_SIZE)
+				print_buffer(buffer, &buff_ind);
+			/* write(1, &format[i], 1);*/
+			printed_chars++;
 		}
 		else
 		{
-			if (idx >= BUFFER_SIZE)
-			{
-				_flush_buffer(buff, &idx);
-			}
-			buff[idx++] = *format;
-			count++;
+			print_buffer(buffer, &buff_ind);
+			flags = get_flags(format, &i);
+			width = get_width(format, &i, list);
+			precision = get_precision(format, &i, list);
+			size = get_size(format, &i);
+			++i;
+			printed = handle_print(format, &i, list, buffer,
+				flags, width, precision, size);
+			if (printed == -1)
+				return (-1);
+			printed_chars += printed;
 		}
-		format++;
 	}
-	_flush_buffer(buff, &idx);
+
+	print_buffer(buffer, &buff_ind);
+
 	va_end(list);
-	return (count);
+
+	return (printed_chars);
+}
+
+/**
+ * print_buffer - Prints buffer if exists
+ * @buffer: An array of chars
+ * @buff_ind: length Index to add next char
+ */
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }
