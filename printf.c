@@ -40,13 +40,13 @@ int process_fmt(const char *format, va_list list, fmt_s *fmt, int num)
 			else
 				return (-1);
 		}
-		else if (*format == '%')
+		else if (*format == '%' && *(format + 1) == '\0')
 		{
 			return (-1);
 		}
 		else
 			count += _putchar(*format);
-		format++
+		format++;
 	}
 	return (count);
 }
@@ -59,18 +59,18 @@ int process_fmt(const char *format, va_list list, fmt_s *fmt, int num)
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int count = 0;
+	int count = 0, num;
 	fmt_s fmt[] = {
 		{'c', handle_char},
 		{'s', handle_str},
 		{'%', handle_perc},
 	};
-	int num = sizeof(fmt) / sizeof(fmt[0]);
 
 	if (format == NULL)
 		return (-1);
 
 	va_start(list, format);
+	num = sizeof(fmt) / sizeof(fmt[0]);
 	count = process_fmt(format, list, fmt, num);
 	va_end(list);
 
