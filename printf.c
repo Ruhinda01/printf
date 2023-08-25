@@ -73,6 +73,7 @@ int _printf(const char *format, ...)
 		{'s', handle_str},
 		{'d', handle_int},
 		{'i', handle_int},
+		{'b', handle_bin},
 	};
 
 	if (format == NULL)

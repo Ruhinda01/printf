@@ -26,7 +26,7 @@ int handle_char(va_list args);
 int handle_str(va_list args);
 int handle_perc(va_list args);
 int handle_int(va_list args);
-
+int handle_bin(va_list args);
 
 
 
