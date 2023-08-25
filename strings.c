@@ -15,7 +15,26 @@ int handle_str(va_list args)
 		str = "(null)";
 	while (*str)
 	{
-		count += _putchar(*str);
+		if (*str == '\\')
+		{
+			str++;
+			switch (*str)
+			{
+				case 'n':
+					count += _putchar('\n');
+					break;
+				case 't':
+					count += _putchar('\t');
+					break;
+				default:
+					count += _putchar('\\');
+					count += _putchar(*str);
+			}
+		}
+		else
+		{
+			count += _putchar(*str);
+		}
 		str++;
 	}
 	return (count);
