@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int count = 0, num, i, found_specifier = 0;
+	int count = 0, num, i;
 	fmt_s fmt[] = {
 		{'c', handle_char},
 		{'s', handle_str},
@@ -29,14 +29,8 @@ int _printf(const char *format, ...)
 				if (*format == fmt[i].specifier)
 				{
 					count += fmt[i].fmt(list);
-					found_specifier = 1;
 					break;
 				}
-			}
-			if (!found_specifier)
-			{
-				count += _putchar('%');
-				count += _putchar(*format);
 			}
 		}
 		else
