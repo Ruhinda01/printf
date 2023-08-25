@@ -21,11 +21,8 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%' && *(format + 1))
-		{
-			va_end(list);
 			return (-1);
-		}
-		if (*format == '%' && *(format + 1))
+		else if (*format == '%' && *(format + 1))
 		{
 			format++;
 			num = sizeof(fmt) / sizeof(fmt[0]);
