@@ -45,7 +45,7 @@ int process_fmt(const char *format, va_list list, fmt_s *fmt, int num)
 				{
 					count += _putchar('%');
 					count += _putchar(*format);
-					return (-1);
+					exit (1);
 				}
 			}
 		}
