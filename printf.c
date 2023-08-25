@@ -22,6 +22,11 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%' && *(format + 1))
 		{
+			va_end(list);
+			return (-1);
+		}
+		if (*format == '%' && *(format + 1))
+		{
 			format++;
 			num = sizeof(fmt) / sizeof(fmt[0]);
 			for (i = 0; i < num; i++)
