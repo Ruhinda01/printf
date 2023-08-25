@@ -9,7 +9,13 @@ int print_num(int num)
 {
 	int count = 0;
 
-	if (num < 0)
+	if (num == INT_MIN)
+	{
+		count += _putchar('-');
+		count += _putchar('2');
+		count += print_num(147483648);
+	}
+	else if (num < 0)
 	{
 		count += _putchar('-');
 		num = -(num);
