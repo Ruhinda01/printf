@@ -27,7 +27,10 @@ int handle_str(va_list args);
 int handle_perc(va_list args);
 int handle_int(va_list args);
 int handle_bin(va_list args);
-
+int handle_u(va_list args);
+int handle_o(va_list args);
+int handle_x(va_list args);
+int handle_X(va_list args);
 
 
 

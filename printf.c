@@ -74,6 +74,10 @@ int _printf(const char *format, ...)
 		{'d', handle_int},
 		{'i', handle_int},
 		{'b', handle_bin},
+		{'u', handle_u},
+		{'o', handle_o},
+		{'x', handle_x},
+		{'X', handle_X},
 	};
 
 	if (format == NULL)
