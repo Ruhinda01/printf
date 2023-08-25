@@ -32,8 +32,6 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			if (*format == '\0')
-				return (-1);
 		}
 		else
 			count += _putchar(*format);
