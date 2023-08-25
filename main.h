@@ -16,7 +16,8 @@
  *
  */
 
-typedef struct fmt {
+typedef struct fmt
+{
 	char specifier;
 	int (*fmt)(va_list);
 } fmt_s;
