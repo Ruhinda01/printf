@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _printf - performs printf function
+ * _printf - performs printf
  * @format: format specs
  *
  * Return: count
@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	fmt_s fmt[] = {
 		{'c', handle_char},
 		{'s', handle_str},
-		{'%', handle_percent},
+		{'%', handle_perc},
 	};
 
 	if (format == NULL)

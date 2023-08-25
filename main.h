@@ -2,15 +2,17 @@
 #define MAIN_H
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <stdarg.h>
 
 
 /**
- * struct fmt - structure for formats
- * @specifier: specifier
- * @fmt: format function pointer
+ * struct fmt - structure
+ * @specifier: spec
+ * @fmt: format
+ *
  */
 typedef struct fmt
 {
@@ -22,9 +24,7 @@ int _printf(const char *format, ...);
 int _putchar(char p);
 int handle_char(va_list args);
 int handle_str(va_list args);
-int handle_percent(va_list args);
-
-
+int handle_perc(va_list args);
 
 
 

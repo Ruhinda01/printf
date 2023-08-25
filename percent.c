@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * handle_percent - handles percent sign
- * @args: arguments list
+ * handle_perc - handle percent
+ * @args: argument list
  *
  * Return: count
  */
-int handle_percent(va_list args)
+int handle_perc(va_list args)
 {
 	int count = 0;
 	(void)args;

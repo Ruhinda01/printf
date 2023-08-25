@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * _putchar - prints output
- * @p: character to be printed
+ * _putchar - prints
+ * @p: character
  *
- * Return: character
+ * Return: print
  */
 int _putchar(char p)
 {
