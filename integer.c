@@ -16,7 +16,7 @@ int print_num(int num)
 	}
 	if (num >= 10)
 	{
-		print_num(num / 10);
+		count += print_num(num / 10);
 	}
 	count += _putchar(num % 10 + '0');
 
