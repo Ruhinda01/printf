@@ -43,7 +43,8 @@ int process_fmt(const char *format, va_list list, fmt_s *fmt, int num)
 					count += fmt[index].fmt(list);
 				else
 				{
-					exit(1);
+					count += _putchar('%');
+					count += _putchar(*format);
 				}
 			}
 		}
