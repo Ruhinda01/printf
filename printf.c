@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			if (!format_specifier)
+			if (!found_specifier)
 			{
 				count += _putchar('%');
 				count += _putchar(*format);
