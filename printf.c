@@ -71,6 +71,8 @@ int _printf(const char *format, ...)
 	fmt_s fmt[] = {
 		{'c', handle_char},
 		{'s', handle_str},
+		{'d', handle_int},
+		{'i', handle_int},
 	};
 
 	if (format == NULL)
