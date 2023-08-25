@@ -31,9 +31,9 @@ int _printf(const char *format, ...)
 					count += fmt[i].fmt(list);
 					break;
 				}
-				else
-					return (-1);
 			}
+			if (*format == NULL || *format == '!' || *format == 'K')
+				return (-1);
 		}
 		else
 			count += _putchar(*format);
