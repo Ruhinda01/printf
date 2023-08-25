@@ -21,8 +21,6 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format == '%' && *(format + 1))
-			return (-1);
-		else if (*format == '%' && *(format + 1))
 		{
 			format++;
 			num = sizeof(fmt) / sizeof(fmt[0]);
