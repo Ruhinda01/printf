@@ -32,8 +32,6 @@ int _printf(const char *format, ...)
 					break;
 				}
 			}
-			if (*format == NULL || *format == '!' || *format == 'K')
-				return (-1);
 		}
 		else
 			count += _putchar(*format);
