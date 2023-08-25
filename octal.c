@@ -9,6 +9,11 @@ int print_octal_recurs(unsigned int num)
 {
 	int count = 0;
 
+	if (num == 0)
+	{
+		count += _putchar('0');
+	}
+
 	if (num >= 8)
 	{
 		count += print_octal_recurs(num / 8);
