@@ -8,23 +8,19 @@
 int print_num(int num)
 {
 	int count = 0;
+	unsigned int positive;
 
-	if (num == INT_MIN)
-	{
-		count += _putchar('-');
-		count += _putchar('2');
-		count += print_num(147483648);
-	}
-	else if (num < 0)
+	if (num < 0)
 	{
 		count += _putchar('-');
 		num = -(num);
 	}
-	if (num >= 10)
+	positive = num;
+	if (positive >= 10)
 	{
-		count += print_num(num / 10);
+		count += print_num(positive / 10);
 	}
-	count += _putchar(num % 10 + '0');
+	count += _putchar(positive % 10 + '0');
 
 	return (count);
 }
