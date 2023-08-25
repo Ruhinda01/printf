@@ -31,6 +31,8 @@ int _printf(const char *format, ...)
 					count += fmt[i].fmt(list);
 					break;
 				}
+				else
+					return (-1);
 			}
 		}
 		else
