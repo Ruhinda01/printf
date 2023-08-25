@@ -34,11 +34,16 @@ int process_fmt(const char *format, va_list list, fmt_s *fmt, int num)
 		if (*format == '%' && *(format + 1))
 		{
 			format++;
+			if (*format == '%')
+				count += _putchar('%');
+			else
+			{
 			index = find_spec(fmt, num, *format);
 			if (index >= 0)
 				count += fmt[index].fmt(list);
 			else
 				return (-1);
+			}
 		}
 		else if (*format == '%' && *(format + 1) == '\0')
 		{
@@ -63,7 +68,7 @@ int _printf(const char *format, ...)
 	fmt_s fmt[] = {
 		{'c', handle_char},
 		{'s', handle_str},
-		{'%', handle_perc},
+		{'%', NULL},
 	};
 
 	if (format == NULL)
