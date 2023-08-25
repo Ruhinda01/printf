@@ -42,11 +42,11 @@ int process_fmt(const char *format, va_list list, fmt_s *fmt, int num)
 		}
 		else if (*format == '%')
 		{
-			va_end(list);
 			return (-1);
 		}
 		else
 			count += _putchar(*format);
+		format++
 	}
 	return (count);
 }
